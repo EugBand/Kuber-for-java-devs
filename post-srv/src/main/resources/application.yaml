@@ -1,0 +1,14 @@
+spring:
+  data:
+    mongodb:
+      host: ${MONGODB_SERVICE:localhost}
+      port: ${MONGODB_PORT:27017}
+      database: ${MONGODB_DB:company}
+      username: ${MONGODB_USER:root}
+      password: ${MONGODB_PASSWORD:rootpassword}
+      authentication-database: admin
+      auto-index-creation: true
+  application:
+    name: 'post-srv'
+server:
+  port: '8091'

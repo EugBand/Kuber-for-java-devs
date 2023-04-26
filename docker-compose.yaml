@@ -1,0 +1,43 @@
+version: '3.9'
+
+services:
+  mongodb:
+    image: mongo:latest
+    ports:
+      - 27017:27017
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: rootpassword
+    volumes:
+      - ../mongodb_data_container:/data/db
+    networks:
+      - network-example
+  user-srv:
+      build: user-srv/.
+      ports: 
+      - '8092:8092'
+      depends_on:
+      - mongodb
+      environment:
+      - POST_PATH
+      - MONGODB_SERVICE
+      - MONGODB_PORT
+      - MONGODB_DB
+      - MONGODB_USER
+      - MONGODB_PASSWORD
+      networks:
+      - network-example
+  post-srv:
+      build: post-srv/.
+      ports:
+      - '8091:8091'
+      depends_on:
+      - mongodb
+      environment:
+      - MONGODB_SERVICE
+      networks:
+      - network-example
+networks:
+  network-example:
+    driver: bridge
+    external: true
