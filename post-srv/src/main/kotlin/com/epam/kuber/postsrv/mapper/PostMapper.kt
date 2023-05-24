@@ -12,7 +12,10 @@ interface PostMapper {
     @Mapping(target = "id", ignore = true)
     @Mapping(target = "created", ignore = true)
     @Mapping(target = "modified", ignore = true)
-    fun toPost(responseDto: PostRequestDto): Post
+//    @Mapping(target = "userId", source = "userId")
+//    @Mapping(target = "text", source = "text")
+//    @Mapping(target = "status", source = "status")
+    fun toPost(requestDto: PostRequestDto): Post
 
     fun toTaskResponseDto(post: Post): PostResponseDto
 }

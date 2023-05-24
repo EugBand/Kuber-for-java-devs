@@ -1,0 +1,17 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: dev
+resources:
+  - app-config-map.yaml
+  - app-secret.yaml
+  - post-service-deployment.yaml
+  - post-service-svc.yaml
+  - user-service-deployment.yaml
+  - user-service-svc.yaml
+  - mongodb/config-map.yaml
+  - mongodb/persistent-volume.yaml
+  - mongodb/persistent-volume-claim.yaml
+  - mongodb/secrets.yaml
+  - mongodb/service.yaml
+  - mongodb/statefulset.yaml
+  - mongodb/storage-class.yaml

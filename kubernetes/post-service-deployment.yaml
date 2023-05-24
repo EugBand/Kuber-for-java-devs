@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: post-service-deployment
+  labels:
+    app: post-service
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: post-service
+  template:
+    metadata:
+      labels:
+        app: post-service
+    spec:
+      hostname: post-srv
+      containers:
+      - name: post-service
+        image: epamyauhenbandarenka/kotlin-post-srv:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8091
+        envFrom:
+          - configMapRef:
+              name: service-configmap
+        env:
+          - name: MONGODB_USER
+            valueFrom:
+              secretKeyRef:
+                name: service-secret
+                key: DATABASE_USERNAME
+          - name: MONGODB_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: service-secret
+                key: DATABASE_PASSWORD

@@ -18,8 +18,24 @@ interface UserMapper {
     @Mapping(target = "modified", ignore = true)
     fun toUserFromRequestDto(requestDto: UserRequestDto): User
 
+    @Mapping(target = "id", source = "id")
+    @Mapping(target = "firstName", source = "firstName")
+    @Mapping(target = "lastName", source = "lastName")
     @Mapping(target = "address", source = "address")
+    @Mapping(target = "sex", source = "sex")
+    @Mapping(target = "dob", source = "dob")
+    @Mapping(target = "amountOfPosts", source = "amountOfPosts")
+    @Mapping(target = "position", source = "position")
+    @Mapping(target = "active", source = "active")
+    @Mapping(target = "created", source = "created")
+    @Mapping(target = "modified", source = "modified")
     fun toResponseDto(user: User): UserResponseDto
+
     fun toAddress(addressDto: AddressDto, userId: Long): Address
+
+    @Mapping(target = "country", source = "country")
+    @Mapping(target = "city", source = "city")
+    @Mapping(target = "postCode", source = "postCode")
+    @Mapping(target = "localAddress", source = "localAddress")
     fun toAddressDto(address: Address): AddressDto
 }

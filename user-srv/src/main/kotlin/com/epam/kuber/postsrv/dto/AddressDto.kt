@@ -2,16 +2,18 @@ package com.epam.kuber.postsrv.dto
 
 import com.fasterxml.jackson.annotation.JsonProperty
 
-class AddressDto {
+class AddressDto(
+
+
     @JsonProperty("country")
-    val country: String? = null
+    var country: String? = null,
 
     @JsonProperty("city")
-    val city: String? = null
+    var city: String? = null,
 
     @JsonProperty("postCode")
-    val postCode: String? = null
+    var postCode: String? = null,
 
     @JsonProperty("address")
-    val localAddress: String? = null
-}
+    var localAddress: String? = null
+)

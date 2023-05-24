@@ -6,14 +6,15 @@ import org.springframework.data.mongodb.core.mapping.Document
 import java.time.LocalDateTime
 
 @Document(collection = "posts")
-data class Post(@Id var id: Long?) {
+class Post {
 
-//    @Id var id: Long? = null
-    val userId: Long? = null
+    @Id
+    var id: Long? = null
+    var userId: Long? = null
 
     @TextIndexed
-    val text: String? = null
-    val status: PostStatusType? = null
-    val created: LocalDateTime? = null
-    val modified: LocalDateTime? = null
+    var text: String? = null
+    var status: PostStatusType? = null
+    var created: LocalDateTime? = null
+    var modified: LocalDateTime? = null
 }

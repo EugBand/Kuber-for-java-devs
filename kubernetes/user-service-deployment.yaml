@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: user-service-deployment
+  labels:
+    app: user-service
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: user-service
+  template:
+    metadata:
+      labels:
+        app: user-service
+    spec:
+      hostname: user-srv
+      containers:
+      - name: user-service-container
+        image: epamyauhenbandarenka/kotlin-user-srv:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8092
+        envFrom:
+          - configMapRef:
+              name: service-configmap
+        env:
+          - name: DATABASE_USERNAME
+            valueFrom:
+              secretKeyRef:
+                name: service-secret
+                key: DATABASE_USERNAME
+          - name: DATABASE_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: service-secret
+                key: DATABASE_PASSWORD

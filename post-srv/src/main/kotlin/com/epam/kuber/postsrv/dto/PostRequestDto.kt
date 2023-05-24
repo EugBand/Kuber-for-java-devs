@@ -6,11 +6,11 @@ import com.fasterxml.jackson.annotation.JsonProperty
 @JsonInclude(JsonInclude.Include.NON_NULL)
 class PostRequestDto {
     @JsonProperty("userId")
-    private val userId: Long? = null
+    var userId: Long? = null
 
     @JsonProperty("text")
-    private val text: String? = null
+    var text: String? = null
 
     @JsonProperty("status")
-    private val status: String? = null
+    var status: String? = null
 }

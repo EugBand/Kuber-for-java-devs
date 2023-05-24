@@ -12,21 +12,21 @@ import java.time.LocalDateTime
 @JsonInclude(JsonInclude.Include.NON_NULL)
 class UserResponseDto {
     @JsonProperty("id")
-    val id: Long? = null
+    var id: Long? = null
 
     @JsonProperty("firstName")
-    val firstName: String? = null
+    var firstName: String? = null
 
     @JsonProperty("lastName")
-    val lastName: String? = null
+    var lastName: String? = null
 
     @JsonProperty("sex")
-    val sex: String? = null
+    var sex: String? = null
 
     @JsonProperty("dob")
     @JsonDeserialize(using = LocalDateDeserializer::class)
     @JsonSerialize(using = LocalDateSerializer::class)
-    val dob: LocalDate? = null
+    var dob: LocalDate? = null
 
     @JsonProperty("address")
     var address: AddressDto? = null
@@ -35,14 +35,14 @@ class UserResponseDto {
     var amountOfPosts: Long? = null
 
     @JsonProperty("position")
-    val position: String? = null
+    var position: String? = null
 
     @JsonProperty("active")
-    val active: Boolean? = null
+    var active: Boolean? = null
 
     @JsonProperty("created")
-    val created: LocalDateTime? = null
+    var created: LocalDateTime? = null
 
     @JsonProperty("modified")
-    val modified: LocalDateTime? = null
+    var modified: LocalDateTime? = null
 }
