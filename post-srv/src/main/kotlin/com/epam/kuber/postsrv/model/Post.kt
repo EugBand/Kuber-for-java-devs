@@ -14,6 +14,7 @@ class Post {
 
     @TextIndexed
     var text: String? = null
+    var topic: String? = null
     var status: PostStatusType? = null
     var created: LocalDateTime? = null
     var modified: LocalDateTime? = null

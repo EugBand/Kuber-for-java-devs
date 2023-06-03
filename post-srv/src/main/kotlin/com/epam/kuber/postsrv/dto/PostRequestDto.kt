@@ -11,6 +11,9 @@ class PostRequestDto {
     @JsonProperty("text")
     var text: String? = null
 
+    @JsonProperty("topic")
+    var topic: String? = null
+
     @JsonProperty("status")
     var status: String? = null
 }

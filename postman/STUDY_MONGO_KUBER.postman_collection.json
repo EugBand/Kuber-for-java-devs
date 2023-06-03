@@ -141,7 +141,28 @@
 			"response": []
 		},
 		{
-			"name": "Get_amount_of_posts",
+			"name": "Greeting_user Copy",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8092/api/v1/greeting",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8092",
+					"path": [
+						"api",
+						"v1",
+						"greeting"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get_amount_of_posts Copy",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -158,6 +179,66 @@
 						"posts",
 						"user",
 						"7369900168052116617"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add_user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\r\n        \"firstName\": \"Trina Corder\",\r\n        \"lastName\": \"Dwayne Pipe\",\r\n        \"sex\": \"NONDISCLOSURE\",\r\n        \"dob\": \"1990-11-22\",\r\n        \"address\": {\r\n            \"country\": \"Latvia\",\r\n            \"city\": \"West Marcibury\",\r\n            \"postCode\": \"31579\",\r\n            \"address\": \"07736 Jade Land, South Lorita, OK 35930-5101\"\r\n        },\r\n        \"position\": \"hacking\",\r\n        \"active\": true\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8092/api/v1/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8092",
+					"path": [
+						"api",
+						"v1",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add_post",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\r\n        \"firstName\": \"Trina Corder\",\r\n        \"lastName\": \"Dwayne Pipe\",\r\n        \"sex\": \"NONDISCLOSURE\",\r\n        \"dob\": \"1990-11-22\",\r\n        \"address\": {\r\n            \"country\": \"Latvia\",\r\n            \"city\": \"West Marcibury\",\r\n            \"postCode\": \"31579\",\r\n            \"address\": \"07736 Jade Land, South Lorita, OK 35930-5101\"\r\n        },\r\n        \"position\": \"hacking\",\r\n        \"active\": true\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8092/api/v1/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8092",
+					"path": [
+						"api",
+						"v1",
+						"users"
 					]
 				}
 			},
@@ -215,6 +296,46 @@
 						"api",
 						"v1",
 						"process"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user_actuator",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:30092/actuator/health",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "30092",
+					"path": [
+						"actuator",
+						"health"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post_actuator",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:30092/actuator/health",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "30092",
+					"path": [
+						"actuator",
+						"health"
 					]
 				}
 			},

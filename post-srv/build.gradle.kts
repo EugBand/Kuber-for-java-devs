@@ -9,7 +9,7 @@ plugins {
 }
 
 group = "com.epam.kuber"
-version = "0.0.1-SNAPSHOT"
+version = "0.0.3-SNAPSHOT"
 java.sourceCompatibility = JavaVersion.VERSION_17
 
 repositories {

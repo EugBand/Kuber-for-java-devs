@@ -23,7 +23,7 @@ class PostController(@Autowired val service: PostService) {
     @GetMapping("/user/{id}")
     private fun getAmountByUserId(@PathVariable id: Long): ResponseEntity<Int> {
         val count: Int? = service.getCountByUserId(id)
-        return if (count == null || count == 0) {
+        return if (count == null) {
             ResponseEntity(HttpStatus.NOT_FOUND)
         } else ResponseEntity(count, HttpStatus.OK)
     }

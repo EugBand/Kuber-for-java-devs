@@ -2,10 +2,10 @@ spring:
   data:
     mongodb:
       host: ${MONGODB_SERVICE:localhost}
-      port: ${MONGODB_PORT:27017}
+      port: ${MONGODB_PORT:30017}
       database: ${MONGODB_DB:company}
-      username: ${MONGODB_USER:root}
-      password: ${MONGODB_PASSWORD:rootpassword}
+      username: ${MONGODB_USER:admin1}
+      password: ${MONGODB_PASSWORD:qazXSWedc32}
       authentication-database: admin
       auto-index-creation: true
   application:
@@ -15,3 +15,13 @@ server:
 api:
   post-srv:
     path: ${POST_PATH:http://localhost:8091/api/v1/posts/}
+management:
+  endpoint:
+    health:
+      probes:
+        enabled: true
+  health:
+    livenessState:
+      enabled: true
+    readinessState:
+      enabled: true

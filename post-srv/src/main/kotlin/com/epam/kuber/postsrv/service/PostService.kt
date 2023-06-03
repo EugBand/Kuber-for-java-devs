@@ -9,6 +9,7 @@ import com.mongodb.MongoException
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 import java.util.*
+import kotlin.reflect.jvm.internal.impl.resolve.constants.LongValue
 
 @Service
 class PostService(@Autowired val repository: PostRepository, @Autowired val mapper: PostMapper) {
@@ -23,6 +24,7 @@ class PostService(@Autowired val repository: PostRepository, @Autowired val mapp
     fun save(requestDto: PostRequestDto?): Boolean {
         return try {
             val taskEntity: Post? = requestDto?.let { mapper.toPost(it) }
+            taskEntity?.id = Random().nextLong()
             taskEntity?.let { repository.save(it) }
             true
         } catch (e: MongoException) {

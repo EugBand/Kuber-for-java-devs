@@ -7,7 +7,7 @@ data:
     storage:
       dbPath: /data/db
   ensure-users.js: |
-    const targetDbStr = 'training';
+    const targetDbStr = 'admin';
     const rootUser = cat('/etc/k8-training/admin/MONGO_ROOT_USERNAME');
     const rootPass = cat('/etc/k8-training/admin/MONGO_ROOT_PASSWORD');
     const usersStr = cat('/etc/k8-training/MONGO_USERS_LIST'); // user1:role1A,role1B:pass1[;user2:role2A,role2B:pass2...]

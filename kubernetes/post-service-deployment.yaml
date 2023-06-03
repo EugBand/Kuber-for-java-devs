@@ -9,6 +9,11 @@ spec:
   selector:
     matchLabels:
       app: post-service
+  strategy:
+    rollingUpdate:
+      maxSurge: 50%
+      maxUnavailable: 50%
+    type: RollingUpdate  
   template:
     metadata:
       labels:
@@ -17,7 +22,7 @@ spec:
       hostname: post-srv
       containers:
       - name: post-service
-        image: epamyauhenbandarenka/kotlin-post-srv:latest
+        image: epamyauhenbandarenka/kotlin-post-srv:0.0.3
         imagePullPolicy: Always
         ports:
         - containerPort: 8091
@@ -35,3 +40,22 @@ spec:
               secretKeyRef:
                 name: service-secret
                 key: DATABASE_PASSWORD
+        livenessProbe:
+          httpGet:
+            path: /actuator/health/liveness
+            port: 8092
+          failureThreshold: 1
+          periodSeconds: 5
+        readinessProbe:
+          httpGet:
+            path: /actuator/health/readiness
+            port: 8092
+          initialDelaySeconds: 60
+          periodSeconds: 5
+        startupProbe:
+          httpGet:
+            path: /actuator/health/liveness
+            port: 8092
+          initialDelaySeconds: 50
+          failureThreshold: 1
+          periodSeconds: 3
