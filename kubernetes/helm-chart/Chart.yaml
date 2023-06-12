@@ -1,0 +1,16 @@
+apiVersion: v2
+name       : User-posts app
+description: Demo app for K8s lessons
+type       : application
+version    : 0.1.0
+appVersion : "0.0.3" 
+
+keywords:
+  - kubernetes
+  - helm
+  - kotlin
+  - rest api
+
+maintainers:
+  - name : Yauhen Bandarenka
+    email: eugband@gmail.com

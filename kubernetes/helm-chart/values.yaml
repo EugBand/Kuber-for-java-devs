@@ -1,0 +1,6 @@
+post:
+    image: epamyauhenbandarenka/kotlin-post-srv:0.0.3
+    replicas: 2
+user:
+    image: epamyauhenbandarenka/kotlin-user-srv:latest
+    replicas: 2

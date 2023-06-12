@@ -1,0 +1,62 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-post-service-deployment
+  namespace: {{ .Release.Namespace }}
+  labels:
+    app: {{ .Release.Name }}-post-service
+spec:
+  replicas: {{ .Values.post.replicas }}
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}-post-service
+  strategy:
+    rollingUpdate:
+      maxSurge: 50%
+      maxUnavailable: 50%
+    type: RollingUpdate  
+  template:
+    metadata:
+      labels:
+        app: {{ .Release.Name }}-post-service
+    spec:
+      hostname: {{ .Release.Name }}-post-srv
+      containers:
+      - name: post-service
+        image: {{ .Values.post.image }}
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8091
+        envFrom:
+          - configMapRef:
+              name: service-configmap
+        env:
+          - name: MONGODB_USER
+            valueFrom:
+              secretKeyRef:
+                name: service-secret
+                key: DATABASE_USERNAME
+          - name: MONGODB_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: service-secret
+                key: DATABASE_PASSWORD
+        livenessProbe:
+          httpGet:
+            path: /actuator/health/liveness
+            port: 8091
+          failureThreshold: 1
+          periodSeconds: 5
+        readinessProbe:
+          httpGet:
+            path: /actuator/health/readiness
+            port: 8091
+          initialDelaySeconds: 60
+          periodSeconds: 5
+        startupProbe:
+          httpGet:
+            path: /actuator/health/liveness
+            port: 8091
+          initialDelaySeconds: 50
+          failureThreshold: 1
+          periodSeconds: 3
