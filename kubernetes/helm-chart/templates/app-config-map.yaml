@@ -3,6 +3,9 @@ kind: ConfigMap
 metadata:
   name: service-configmap
   namespace: {{ .Release.Namespace }}
+  labels:
+    app-start-time: {{ include "app.currentDateTime" . }}
+    app-version: {{ include "app.currentVersion" . }}
 data:
   POST_PATH: "http://post-srv:8091/api/v1/posts/"
   MONGODB_SERVICE: "mongodb"
