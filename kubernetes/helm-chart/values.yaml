@@ -1,6 +1,10 @@
 post:
+    namespace: dev-post
     image: epamyauhenbandarenka/kotlin-post-srv:0.0.3
     replicas: 2
 user:
+    namespace: dev-user
     image: epamyauhenbandarenka/kotlin-user-srv:latest
     replicas: 2
+mongo:
+    namespace: dev-mongo

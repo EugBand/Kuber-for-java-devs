@@ -2,7 +2,7 @@ kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
   name: mongodb-standalone
-  namespace: {{ .Release.Namespace }}
+  namespace: {{ .Values.mongo.namespace }}
 spec:
   storageClassName: mongodb-standalone
   accessModes:

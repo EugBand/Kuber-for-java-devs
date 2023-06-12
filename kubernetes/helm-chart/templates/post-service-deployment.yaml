@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ .Release.Name }}-post-service-deployment
-  namespace: {{ .Release.Namespace }}
+  namespace: {{ .Values.post.namespace }}
   labels:
     app: {{ .Release.Name }}-post-service
 spec:
@@ -29,17 +29,17 @@ spec:
         - containerPort: 8091
         envFrom:
           - configMapRef:
-              name: service-configmap
+              name: post-configmap
         env:
           - name: MONGODB_USER
             valueFrom:
               secretKeyRef:
-                name: service-secret
+                name: post-secret
                 key: DATABASE_USERNAME
           - name: MONGODB_PASSWORD
             valueFrom:
               secretKeyRef:
-                name: service-secret
+                name: post-secret
                 key: DATABASE_PASSWORD
         livenessProbe:
           httpGet:
