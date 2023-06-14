@@ -36,7 +36,7 @@
 			"response": []
 		},
 		{
-			"name": "Get_all_users",
+			"name": "Get_all_users_proxy",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -57,7 +57,7 @@
 			"response": []
 		},
 		{
-			"name": "Get_user_byId",
+			"name": "Get_user_byId_proxy",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -78,7 +78,7 @@
 			"response": []
 		},
 		{
-			"name": "Get_all_posts",
+			"name": "Get_all_posts_proxy",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -99,7 +99,7 @@
 			"response": []
 		},
 		{
-			"name": "Greeting_post",
+			"name": "Greeting_post_proxy",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -141,7 +141,7 @@
 			"response": []
 		},
 		{
-			"name": "Greeting_user Copy",
+			"name": "Greeting_user_local",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -162,7 +162,28 @@
 			"response": []
 		},
 		{
-			"name": "Get_amount_of_posts Copy",
+			"name": "Greeting_user_proxy",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/user/api/v1/greeting",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"user",
+						"api",
+						"v1",
+						"greeting"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get_amount_of_posts_proxy",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -185,13 +206,13 @@
 			"response": []
 		},
 		{
-			"name": "Add_user",
+			"name": "Add_user_proxy",
 			"request": {
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "    {\r\n        \"firstName\": \"Trina Corder\",\r\n        \"lastName\": \"Dwayne Pipe\",\r\n        \"sex\": \"NONDISCLOSURE\",\r\n        \"dob\": \"1990-11-22\",\r\n        \"address\": {\r\n            \"country\": \"Latvia\",\r\n            \"city\": \"West Marcibury\",\r\n            \"postCode\": \"31579\",\r\n            \"address\": \"07736 Jade Land, South Lorita, OK 35930-5101\"\r\n        },\r\n        \"position\": \"hacking\",\r\n        \"active\": true\r\n    }",
+					"raw": "    {\r\n        \"id\": 5715904166237373587,\r\n        \"firstName\": \"Trina Corder\",\r\n        \"lastName\": \"Dwayne Pipe\",\r\n        \"sex\": \"NONDISCLOSURE\",\r\n        \"dob\": \"1990-11-22\",\r\n        \"address\": {\r\n            \"country\": \"Belarus\",\r\n            \"city\": \"West Marcibury\",\r\n            \"postCode\": \"31579\",\r\n            \"address\": \"07736 Bela Land, South Rome, OK 35930-999\"\r\n        },\r\n        \"position\": \"hacking\",\r\n        \"active\": true\r\n    }",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -199,13 +220,13 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8092/api/v1/users",
+					"raw": "http://localhost/user/api/v1/users",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8092",
 					"path": [
+						"user",
 						"api",
 						"v1",
 						"users"
@@ -215,13 +236,13 @@
 			"response": []
 		},
 		{
-			"name": "Add_post",
+			"name": "Add_post_proxy",
 			"request": {
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "    {\r\n        \"firstName\": \"Trina Corder\",\r\n        \"lastName\": \"Dwayne Pipe\",\r\n        \"sex\": \"NONDISCLOSURE\",\r\n        \"dob\": \"1990-11-22\",\r\n        \"address\": {\r\n            \"country\": \"Latvia\",\r\n            \"city\": \"West Marcibury\",\r\n            \"postCode\": \"31579\",\r\n            \"address\": \"07736 Jade Land, South Lorita, OK 35930-5101\"\r\n        },\r\n        \"position\": \"hacking\",\r\n        \"active\": true\r\n    }",
+					"raw": "    {\r\n        \"userId\": 5715904166237373587,\r\n        \"text\": \"This above all: to thine own self be true.\",\r\n        \"topic\" : \"Some topic\", \r\n        \"status\": \"DONE\"\r\n    }",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -229,23 +250,23 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8092/api/v1/users",
+					"raw": "http://localhost/post/api/v1/posts",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8092",
 					"path": [
+						"post",
 						"api",
 						"v1",
-						"users"
+						"posts"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "PUT_search",
+			"name": "PUT_search_local",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -281,7 +302,7 @@
 			"response": []
 		},
 		{
-			"name": "Purge",
+			"name": "Purge_local",
 			"request": {
 				"method": "DELETE",
 				"header": [],

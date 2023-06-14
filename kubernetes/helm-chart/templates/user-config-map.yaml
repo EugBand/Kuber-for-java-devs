@@ -7,7 +7,7 @@ metadata:
     app-start-time: {{ include "app.currentDateTime" . }}
     app-version: {{ include "app.currentVersion" . }}
 data:
-  POST_PATH: "http://post-srv:8091/api/v1/posts/"
-  MONGODB_SERVICE: "mongodb"
+  POST_PATH: "http://{{- .Release.Name -}}-post-service-svc.{{- .Values.post.namespace -}}:8091/api/v1/posts/"
+  MONGODB_SERVICE: "mongodb.{{- .Values.mongo.namespace -}}"
   MONGODB_PORT: "27017"
   MONGODB_DB: "company"

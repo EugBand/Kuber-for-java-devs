@@ -4,11 +4,10 @@ metadata:
   name: {{ .Release.Name }}-user-service-svc
   namespace: {{ .Values.user.namespace }}
 spec:
-  type: NodePort
+  ports:
+  - port: 8092
+    protocol: TCP
+    targetPort: 8092
+  clusterIP: None
   selector:
     app: {{ .Release.Name }}-user-service
-  ports:
-    - nodePort: 30092
-      port: 8092
-      protocol: TCP
-      targetPort: 8092
